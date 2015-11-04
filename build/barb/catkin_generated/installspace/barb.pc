@@ -1,0 +1,8 @@
+prefix=/home/jeff/barb_ws/install
+
+Name: barb
+Description: Description of barb
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/jeff/barb_ws/install/lib 
+Requires: 

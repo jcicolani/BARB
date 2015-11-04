@@ -1,0 +1,5 @@
+<launch>
+	<node name="joy" pkg="joy" type="joy_node"/>
+	<node name="barb_control" pkg="barb" type="barb_control.py"/>
+	<node name="barb_drive" pkg="barb" type="barb_drive.py"/>
+</launch>

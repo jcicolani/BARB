@@ -1,0 +1,29 @@
+import roboclaw
+import rospy
+from geometry_msgs.msg import Twist
+
+#Linux comport name
+roboclaw.Open("/dev/ttyACM0",115200)
+
+def drive_wheels(msg):
+	t = Twist()
+	x = -t.linear.x
+	z = t.angular.z
+
+	v = (100-abs(x)) * (y/100) + y
+	w = (100-abs(y)) * (x/100) + x
+
+	r = (v+w)/2
+	l = (v-w)/2
+
+	m1 = ((r + 1) / 2) * 127
+	m2 = ((l + 1) / 2) * 127
+
+	print m1 + " " + m2
+#	DriveM1(m1)
+#	DriveM2(m2)
+
+rospy.init_node('barb_base')
+sub = rospy.Subscriber('cmd_vel', Twist, drive_wheels)
+
+rospy.spin()
